@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <!-- 是否启动webapp功能，会删除默认的苹果工具栏和菜单栏。 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 这个主要是根据实际的页面设计的主体色为搭配来进行设置。 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- 忽略页面中的数字识别为电话号码,email识别 -->
+    <meta name="format-detection"content="telephone=no, email=no" />
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+
+    <link rel="stylesheet" href="./chatlist.css">
+
+    <script src="./chatlist.js"></script>
+
+    <title>聊天列表</title>
+    <style>
+        body {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="all">
+
+        <!-- 聊天页 -->
+        <div class="chat-list"></div>
+
+    <script>
+        ChatList({
+            appendTo: '.chat-list',
+            generateListItem: null,
+            index: 0,
+            data: [
+                {
+                    id: 1,
+                    name: '阿诚',
+                    // 头像
+                    avater: './head.jpeg',
+                    // 最后一条信息
+                    content: '这是一条内容2',
+                    // 最后一条信息的时间
+                    buildTime: '2013-01-12 12:30:12',
+                    // 聊天接口
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 2,
+                    name: '阿诚2号',
+                    avater: './head.jpeg',
+                    content: '这是一条内容asdas',
+                    buildTime: '2019-04-12 12:30:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 3,
+                    name: '阿诚3号',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2013-06-12 12:30:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 4,
+                    name: '阿诚4号',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2013-06-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 5,
+                    name: '小李1号',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2015-06-12 18:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 5,
+                    name: '小李2号',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2013-06-12 08:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 6,
+                    name: '小李4号',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2016-12-12 02:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 7,
+                    name: '版本',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2012-06-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 8,
+                    name: '防御魔法',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2011-06-12 10:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 9,
+                    name: 'ui',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2019-01-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 10,
+                    name: '有i',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2017-06-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 11,
+                    name: '现场v额',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2017-06-22 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 12,
+                    name: '为',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2012-06-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 13,
+                    name: '现在v我',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2019-02-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 14,
+                    name: '指数的企稳',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2011-06-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 15,
+                    name: '收到v我的',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2008-06-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 16,
+                    name: '奥省的',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2009-06-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 1,
+                    name: '阿诚',
+                    // 头像
+                    avater: './head.jpeg',
+                    // 最后一条信息
+                    content: '这是一条内容2',
+                    // 最后一条信息的时间
+                    buildTime: '2013-01-12 12:30:12',
+                    // 聊天接口
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 2,
+                    name: '阿诚2号',
+                    avater: './head.jpeg',
+                    content: '这是一条内容asdas',
+                    buildTime: '2019-04-12 12:30:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 3,
+                    name: '阿诚3号',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2013-06-12 12:30:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 4,
+                    name: '阿诚4号',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2013-06-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 5,
+                    name: '小李1号',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2015-06-12 18:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 5,
+                    name: '小李2号',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2013-06-12 08:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 6,
+                    name: '小李4号',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2016-12-12 02:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 7,
+                    name: '版本',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2012-06-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 8,
+                    name: '防御魔法',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2011-06-12 10:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 9,
+                    name: 'ui',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2019-01-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 10,
+                    name: '有i',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2017-06-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 11,
+                    name: '现场v额',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2017-06-22 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 12,
+                    name: '为',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2012-06-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 13,
+                    name: '现在v我',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2019-02-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 14,
+                    name: '指数的企稳',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2011-06-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 15,
+                    name: '收到v我的',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2008-06-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                },
+                {
+                    id: 16,
+                    name: '奥省的',
+                    avater: './head1.jpeg',
+                    content: '这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas这是一条内容asdas',
+                    buildTime: '2009-06-12 12:09:12',
+                    chat: '{php echo $this->createMobileUrl("MywzList");}&cc=3&openid={$mopenid}'
+                }
+            ]
+        })
+    </script>
+</body>
+</html>
